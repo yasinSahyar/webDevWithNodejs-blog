@@ -13,7 +13,7 @@
             <div class="col-md-3">
 
                 <!-- menu -->
-                <%- include('../partials/category-menu', categories) %>
+                <%- include('../partials/category-menu', {categories, selectedCategory }) %>
 
 
             </div>
@@ -23,15 +23,14 @@
                     <%=title %>
                 </h1>
 
+                <% if (blogs.length == 0) { %>
+                    <%- include('../partials/no-products') %>
+                <% } %>
+
                 <% blogs.forEach(blog => { %>
 
-                    <% if (blog.onay) { %>
-                     
                         <%- include('../partials/blog-card', blog) %>
 
-                    <% } %>
-
-                    
 
                 <% }) %>
 
@@ -43,8 +42,6 @@
 
                 <% } %>
                     
-
-
 
             </div>
         </div>
